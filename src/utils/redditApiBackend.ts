@@ -1,7 +1,7 @@
 import { RedditPost, SubredditData } from '../types';
 
 // Use the backend proxy for Reddit API requests
-const BACKEND_BASE_URL = 'https://reddit-pulse-dashboard.onrender.com';
+const BACKEND_BASE_URL = 'https://reddit-sentiment-analyzer-6hru.onrender.com';
 
 export async function fetchSubredditPosts(
   subreddit: string,
