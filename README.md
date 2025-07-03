@@ -1,5 +1,9 @@
 # Reddit Sentiment Dashboard
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen)](https://reddit-sentiment-analyzer.vercel.app/)
+
+**Live Demo:** https://reddit-sentiment-analyzer.vercel.app/
+
 This project was created by M. Niyaaz Anthony.
 
 ## Overview
