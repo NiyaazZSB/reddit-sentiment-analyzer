@@ -13,21 +13,23 @@ export async function fetchSubredditPosts(
     const response = await fetch(url);
     if (!response.ok) throw new Error('Failed to fetch subreddit posts');
     const json = await response.json();
-    const posts: RedditPost[] = (json.data.children || []).map((c: any) => {
-      const p = c.data;
-      return {
-        id: p.id,
-        title: p.title,
-        selftext: p.selftext,
-        author: p.author,
-        subreddit: p.subreddit,
-        score: p.score,
-        num_comments: p.num_comments,
-        created_utc: p.created_utc,
-        url: p.url,
-        permalink: p.permalink,
-      };
-    });
+    const posts: RedditPost[] = (json.data.children || [])
+      .slice(0, limit) // Ensure we only return the requested number of posts
+      .map((c: any) => {
+        const p = c.data;
+        return {
+          id: p.id,
+          title: p.title,
+          selftext: p.selftext,
+          author: p.author,
+          subreddit: p.subreddit,
+          score: p.score,
+          num_comments: p.num_comments,
+          created_utc: p.created_utc,
+          url: p.url,
+          permalink: p.permalink,
+        };
+      });
     return { subreddit, posts };
   } catch (error: any) {
     return { subreddit, posts: [], error: error.message };

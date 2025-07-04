@@ -80,6 +80,13 @@ app.get('/api/reddit/:subreddit', async (req, res) => {
       return res.status(502).json({ error: 'Reddit returned non-JSON response', details: errorText });
     }
     const json = await response.json();
+    // Ensure we only return the requested number of posts (limit)
+    if (json && json.data && Array.isArray(json.data.children)) {
+      // Remove stickied posts (optional, but common)
+      const limitNum = parseInt(limit) || 10;
+      const filtered = json.data.children.filter(c => !c.data.stickied).slice(0, limitNum);
+      json.data.children = filtered;
+    }
     res.json(json);
   } catch (error) {
     console.error('Proxy server error:', error);

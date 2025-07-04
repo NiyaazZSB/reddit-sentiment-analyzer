@@ -3,6 +3,7 @@ import { BarChart3, TrendingUp, TrendingDown, Activity, Users, MessageSquare } f
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { SentimentResult } from '../types';
+import ManualLabeling from './ManualLabeling';
 
 interface DashboardProps {
   results: SentimentResult[];
@@ -262,6 +263,19 @@ const Dashboard: React.FC<DashboardProps> = ({ results }) => {
               </div>
             ))}
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Manual Labeling Section */}
+      <Card className="border-0 bg-gradient-to-br from-yellow-50 to-orange-100 shadow-xl mt-8">
+        <CardHeader className="pb-2">
+          <CardTitle className="flex items-center gap-2 text-lg font-bold">
+            <span role="img" aria-label="label">🏷️</span>
+            Manual Labeling & Accuracy
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ManualLabeling results={results} />
         </CardContent>
       </Card>
     </div>

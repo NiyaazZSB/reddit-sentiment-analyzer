@@ -31,7 +31,7 @@ const SubredditAnalyzer: React.FC<SubredditAnalyzerProps> = ({ onResults }) => {
 
     setIsAnalyzing(true);
     setConnectionStatus('connecting');
-    setStatus('Connecting to Reddit API via backend...');
+    setStatus('Connecting to Reddit...');
 
     try {
       const cleanSubreddit = subreddit.replace(/^r\//, '');

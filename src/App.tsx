@@ -9,7 +9,7 @@ import SubredditAnalyzer from './components/SubredditAnalyzer';
 import SentimentResults from './components/SentimentResults';
 import Dashboard from './components/Dashboard';
 import { SentimentResult } from './types';
-import { MessageSquare, BarChart3, MessageCircle, Brain } from 'lucide-react';
+import { MessageSquare, BarChart3, MessageCircle } from 'lucide-react';
 
 const queryClient = new QueryClient();
 
